@@ -11,8 +11,8 @@ from utils import get_center_of_bbox, get_bbox_width, get_foot_position
 
 class Tracker:
     def __init__(self, model_path):
-        self.model = YOLO(model_path) 
-        self.tracker = sv.ByteTrack()
+        self.model = YOLO(model_path, device=0) 
+        self.tracker = sv.ByteTrack(device=0)
 
     def add_position_to_tracks(sekf,tracks):
         for object, object_tracks in tracks.items():
